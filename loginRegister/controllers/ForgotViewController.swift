@@ -9,17 +9,19 @@ import UIKit
 
 class ForgotViewController: UIViewController {
 
+    //Outlets
+    @IBOutlet weak var emailField: UITextField!
     
-    @IBOutlet weak var animationView : UIView!
+    //Actions
+    @IBAction func resetPassButton(_ sender: Any) {
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+      
     }
     
-    private func setUpAnimation(){
-       
-    }
+    
 
 }
