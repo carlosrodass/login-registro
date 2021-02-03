@@ -13,18 +13,22 @@ class loginViewController: UIViewController {
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
     
+    //Instanciando la clase que posee las peticiones
+    let request = Request()
     
     //Actions
     @IBAction func goButton(_ sender: Any) {
         
-        //Recogiendo informacion de los campos
-        if((emailField.text != nil) && (passField != nil)){
-            
-            let email : String = emailField.text!
-            let pass : String = passField.text!
-            
-            User.init(email: email, password: pass)
+        let name : String = emailField.text!
+        let pass : String = passField.text!
+        
+        let parameters = ["name": name, "pass":pass]
+        
+        request.logIn(endpoint: "/api/login", parameters: parameters) { (result) in
+            print(result)
         }
+        
+        
         
         
     }

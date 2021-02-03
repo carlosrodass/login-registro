@@ -11,6 +11,7 @@
 		1F4E18D925C0165600CA1204 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E18D825C0165600CA1204 /* RegisterViewController.swift */; };
 		1F4E18DE25C0166500CA1204 /* ForgotViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E18DD25C0166500CA1204 /* ForgotViewController.swift */; };
 		1F4E18E425C0215000CA1204 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F4E18E325C0215000CA1204 /* ProfileViewController.swift */; };
+		1F6B065D25C9F5C200A2A0F2 /* GetUsersViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F6B065C25C9F5C200A2A0F2 /* GetUsersViewController.swift */; };
 		1FAC8FE525B84CCF0069CA20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC8FE425B84CCF0069CA20 /* AppDelegate.swift */; };
 		1FAC8FE725B84CCF0069CA20 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC8FE625B84CCF0069CA20 /* SceneDelegate.swift */; };
 		1FAC8FE925B84CCF0069CA20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC8FE825B84CCF0069CA20 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 		1FAC8FFC25B84CD10069CA20 /* loginRegisterTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC8FFB25B84CD10069CA20 /* loginRegisterTests.swift */; };
 		1FAC900725B84CD10069CA20 /* loginRegisterUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC900625B84CD10069CA20 /* loginRegisterUITests.swift */; };
 		1FAC901825B84E790069CA20 /* loginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FAC901725B84E790069CA20 /* loginRegisterViewController.swift */; };
+		1FD0434725CAE2550003FED1 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0434625CAE2550003FED1 /* AlertService.swift */; };
 		7F21EBB525C97D290006F48B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21EBB425C97D290006F48B /* User.swift */; };
 		7F21EBB725C97E680006F48B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21EBB625C97E680006F48B /* Request.swift */; };
 		DDC844CA8EEB3F55D8A7A269 /* Pods_loginRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB658A3B6D4ECF203B40F80 /* Pods_loginRegister.framework */; };
@@ -47,6 +49,7 @@
 		1F4E18D825C0165600CA1204 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1F4E18DD25C0166500CA1204 /* ForgotViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotViewController.swift; sourceTree = "<group>"; };
 		1F4E18E325C0215000CA1204 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		1F6B065C25C9F5C200A2A0F2 /* GetUsersViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUsersViewController.swift; sourceTree = "<group>"; };
 		1FAC8FE125B84CCF0069CA20 /* loginRegister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = loginRegister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		1FAC8FE425B84CCF0069CA20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		1FAC8FE625B84CCF0069CA20 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -62,6 +65,7 @@
 		1FAC900625B84CD10069CA20 /* loginRegisterUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRegisterUITests.swift; sourceTree = "<group>"; };
 		1FAC900825B84CD10069CA20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1FAC901725B84E790069CA20 /* loginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = loginRegisterViewController.swift; sourceTree = "<group>"; };
+		1FD0434625CAE2550003FED1 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		7F21EBB425C97D290006F48B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F21EBB625C97E680006F48B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
 		DBB658A3B6D4ECF203B40F80 /* Pods_loginRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loginRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -120,6 +124,7 @@
 		1FAC8FE325B84CCF0069CA20 /* loginRegister */ = {
 			isa = PBXGroup;
 			children = (
+				1FD0433825CAE0910003FED1 /* helpers */,
 				7F21EBB325C973C50006F48B /* storyboards */,
 				7F21EBB225C973BE0006F48B /* controllers */,
 				1FAC8FE425B84CCF0069CA20 /* AppDelegate.swift */,
@@ -148,6 +153,14 @@
 			path = loginRegisterUITests;
 			sourceTree = "<group>";
 		};
+		1FD0433825CAE0910003FED1 /* helpers */ = {
+			isa = PBXGroup;
+			children = (
+				1FD0434625CAE2550003FED1 /* AlertService.swift */,
+			);
+			path = helpers;
+			sourceTree = "<group>";
+		};
 		7F21EBB225C973BE0006F48B /* controllers */ = {
 			isa = PBXGroup;
 			children = (
@@ -159,6 +172,7 @@
 				1F4E18E325C0215000CA1204 /* ProfileViewController.swift */,
 				7F21EBB425C97D290006F48B /* User.swift */,
 				7F21EBB625C97E680006F48B /* Request.swift */,
+				1F6B065C25C9F5C200A2A0F2 /* GetUsersViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -364,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				1FAC8FE925B84CCF0069CA20 /* ViewController.swift in Sources */,
+				1FD0434725CAE2550003FED1 /* AlertService.swift in Sources */,
 				1FAC8FE525B84CCF0069CA20 /* AppDelegate.swift in Sources */,
 				1FAC8FE725B84CCF0069CA20 /* SceneDelegate.swift in Sources */,
 				1F4E18DE25C0166500CA1204 /* ForgotViewController.swift in Sources */,
@@ -372,6 +387,7 @@
 				1FAC901825B84E790069CA20 /* loginRegisterViewController.swift in Sources */,
 				7F21EBB725C97E680006F48B /* Request.swift in Sources */,
 				1F4E18E425C0215000CA1204 /* ProfileViewController.swift in Sources */,
+				1F6B065D25C9F5C200A2A0F2 /* GetUsersViewController.swift in Sources */,
 				1F4E18D425C0164100CA1204 /* loginViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

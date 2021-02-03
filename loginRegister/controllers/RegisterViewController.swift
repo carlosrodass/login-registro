@@ -23,27 +23,23 @@ class RegisterViewController: UIViewController {
     @IBAction func registerButton(_ sender: Any) {
         
         //Recogiendo informacion de los campos
-        let email : String = emailField.text!
+        let user : String = emailField.text!
         let pass : String = passField.text!
         
         //Comprobando que no esten vacios
-        if(email.isEmpty || pass.isEmpty){
+        if(user.isEmpty || pass.isEmpty){
             
             return
     
         }
+        
+       // let usuario = User.init(user:user, pass:pass)
     
-        //Ejecutando metodo post que envia los datos al servidor
-        request.PostUsers(email: email, pass: pass)
+        //Ejecutando metodo post que envia los datos al servidor y registrando un usuario
+        request.createUser(user: user, pass: pass)
         
-        
-                  
-               
-             
         
     }
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
