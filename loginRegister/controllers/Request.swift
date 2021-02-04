@@ -41,30 +41,27 @@ class Request{
                , parameters: [String: Any]
                ,completion: @escaping (Result<User, Error>) -> Void){
          
-        let baseURl = "https://superapi.netlify.app"
-        
+        let baseURl = "https://superapi.netlify.app/"
         guard let url = URL(string: baseURl + endpoint) else {
             completion(.failure(logInError.badURL))
             return
         }
         
         var request = URLRequest(url: url)
-        var components = URLComponents()
         
-        var queryItems = [URLQueryItem]()
-        
-        for (key, value) in parameters {
-            let queryItem = URLQueryItem(name: key, value: String(describing: value))
-            queryItems.append(queryItem)
+//        for parametro in parameters {
+//
+//        }
+ 
+        guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
+        return
+            
         }
         
-        components.queryItems = queryItems
-        //name=wa&pass=wa
-        let queryItemData = components.query?.data(using: .utf8)
-        
-        request.httpBody = queryItemData
+        request.httpBody = httpBody
         request.httpMethod = "POST"
-        request.addValue("application/x-www-form-urlencoded", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.addValue("application/json", forHTTPHeaderField: "Accept")
         
         let session = URLSession.shared
         
@@ -81,6 +78,7 @@ class Request{
                 switch unWrappedResponse.statusCode{
                 case 200 ..< 300:
                     print("success")
+                 
                 
                 default:
                     print("failure")
@@ -94,14 +92,24 @@ class Request{
                     do{
                         let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
                         print(json)
+                        
+                        if let users = try? JSONDecoder().decode(User.self, from: unwrappedData){
+                            completion(.success(users))
+                        } else{
+                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
+                            completion(.failure(errorResponse))
+                        }
                     } catch{
                         completion(.failure(error))
+                        
                     }
                     
                 }
             }
         }
         task.resume()
+        
+        
         
     }
     
@@ -115,7 +123,7 @@ class Request{
     
     //Obtener lista de usuarios
     func getAllUsers(){
-        var users: [User]? = nil
+       // var users: [User]? = nil
         
         let url = URL(string: "https://superapi.netlify.app/api/users")
         //let decoder = JSONDecoder()
@@ -127,11 +135,8 @@ class Request{
             if let unwrappedData = data{
                 print(unwrappedData)
                 do{
-                    
-                    users = try JSONDecoder().decode([User].self, from: unwrappedData)
-                    for user in users! {
-                        print(user.name, user.pass)
-                        }
+                    let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+                    print(json)
                     
                 }catch{
                    print(error)
@@ -145,3 +150,22 @@ class Request{
 }
 //let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
 //print(json)
+
+
+// users = try JSONDecoder().decode([User].self, from: unwrappedData)
+                   //for user in users! {
+                       //print(user.name, user.pass)
+                       //}
+
+//        var components = URLComponents()
+ //
+ //        var queryItems = [URLQueryItem]()
+ //
+ //        for (key, value) in parameters {
+ //            let queryItem = URLQueryItem(name: key, value: String(describing: value))
+ //            queryItems.append(queryItem)
+ //        }
+ //
+ //        components.queryItems = queryItems
+ //        //name=wa&pass=wa
+ //        let queryItemData = components.query?.data(using: .utf8)

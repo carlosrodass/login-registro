@@ -24,6 +24,7 @@
 		1FD0434725CAE2550003FED1 /* AlertService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1FD0434625CAE2550003FED1 /* AlertService.swift */; };
 		7F21EBB525C97D290006F48B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21EBB425C97D290006F48B /* User.swift */; };
 		7F21EBB725C97E680006F48B /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F21EBB625C97E680006F48B /* Request.swift */; };
+		7F220FDD25CC2AC0002119EE /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7F220FDC25CC2AC0002119EE /* ErrorResponse.swift */; };
 		DDC844CA8EEB3F55D8A7A269 /* Pods_loginRegister.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DBB658A3B6D4ECF203B40F80 /* Pods_loginRegister.framework */; };
 /* End PBXBuildFile section */
 
@@ -68,6 +69,7 @@
 		1FD0434625CAE2550003FED1 /* AlertService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertService.swift; sourceTree = "<group>"; };
 		7F21EBB425C97D290006F48B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		7F21EBB625C97E680006F48B /* Request.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Request.swift; sourceTree = "<group>"; };
+		7F220FDC25CC2AC0002119EE /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
 		DBB658A3B6D4ECF203B40F80 /* Pods_loginRegister.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_loginRegister.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E522DBD1DE383EFCDD0FC543 /* Pods-loginRegister.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loginRegister.release.xcconfig"; path = "Target Support Files/Pods-loginRegister/Pods-loginRegister.release.xcconfig"; sourceTree = "<group>"; };
 		EDAD409D4F88EB592D4C763F /* Pods-loginRegister.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-loginRegister.debug.xcconfig"; path = "Target Support Files/Pods-loginRegister/Pods-loginRegister.debug.xcconfig"; sourceTree = "<group>"; };
@@ -157,6 +159,7 @@
 			isa = PBXGroup;
 			children = (
 				1FD0434625CAE2550003FED1 /* AlertService.swift */,
+				7F220FDC25CC2AC0002119EE /* ErrorResponse.swift */,
 			);
 			path = helpers;
 			sourceTree = "<group>";
@@ -389,6 +392,7 @@
 				1F4E18E425C0215000CA1204 /* ProfileViewController.swift in Sources */,
 				1F6B065D25C9F5C200A2A0F2 /* GetUsersViewController.swift in Sources */,
 				1F4E18D425C0164100CA1204 /* loginViewController.swift in Sources */,
+				7F220FDD25CC2AC0002119EE /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

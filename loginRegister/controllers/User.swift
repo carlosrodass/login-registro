@@ -1,7 +1,7 @@
 import Foundation
 
 struct User: Decodable {
-    var name : String
+    var user : String
     var pass : String
     
     

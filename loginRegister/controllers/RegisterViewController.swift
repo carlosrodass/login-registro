@@ -33,8 +33,6 @@ class RegisterViewController: UIViewController {
     
         }
         
-       // let usuario = User.init(user:user, pass:pass)
-    
         //Ejecutando metodo post que envia los datos al servidor y registrando un usuario
         request.createUser(user: user, pass: pass)
         

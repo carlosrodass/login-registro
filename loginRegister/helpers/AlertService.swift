@@ -1,6 +1,6 @@
 import UIKit
 
-class AlertService: UIViewController {
+class AlertService{
 
     func alert(message: String) -> UIAlertController {
         
