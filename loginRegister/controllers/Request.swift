@@ -115,19 +115,24 @@ class Request{
     
     //Obtener lista de usuarios
     func getAllUsers(){
-        //var users: [User]? = nil
+        var users: [User]? = nil
         
         let url = URL(string: "https://superapi.netlify.app/api/users")
+        //let decoder = JSONDecoder()
         
         let session = URLSession.shared.dataTask(with: url!) { (data, response, error) in
             if let response = response{
                 print(response)
             }
-            if let data = data{
-                print(data)
+            if let unwrappedData = data{
+                print(unwrappedData)
                 do{
-                    let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    print(json)
+                    
+                    users = try JSONDecoder().decode([User].self, from: unwrappedData)
+                    for user in users! {
+                        print(user.name, user.pass)
+                        }
+                    
                 }catch{
                    print(error)
                 }
@@ -138,3 +143,5 @@ class Request{
         
 }
 }
+//let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+//print(json)
