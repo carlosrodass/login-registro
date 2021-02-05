@@ -110,14 +110,11 @@ class Request{
     }
     
     
-    
+  //
     //Obtener lista de usuarios
-    func getAllUsers(endpoint: String
-                        ,completion: @escaping (Result<[String], Error>) -> Void){
+    func getAllUsers(endpoint: String , completion: @escaping (Result<[String], Error>) -> Void){
        
-        
-        //let baseUrl = URL(string: "https://superapi.netlify.app/")
-        
+    
         guard let url = URL(string: "https://superapi.netlify.app/" + endpoint) else {
             completion(.failure(logInError.badURL))
             return
@@ -146,28 +143,30 @@ class Request{
             
                 do{
                     let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                    //print(json)
+                    print(json)
 
-                    if let users = try? JSONDecoder().decode([String].self, from: unwrappedData){
+                    if let usuarios = try? JSONDecoder().decode([String].self, from: unwrappedData){
 
-                        completion(.success(users))
+                        completion(.success(usuarios))
 
-
+                   
 
                     }else{
-                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
+                        let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
                             completion(.failure(errorResponse))
+                            //print(errorResponse)
                         }
                                 
                 }catch{
-                   completion(.failure(error))
+                    completion(.failure(error))
                     print("estoy aqui")
+                    print(error)
                 }
             }
         }
         session.resume()
         
-        
+  
 }
 }
 //let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
