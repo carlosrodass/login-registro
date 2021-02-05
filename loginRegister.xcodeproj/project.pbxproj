@@ -103,6 +103,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1FA6B2FD25CE075E00BA166D /* models */ = {
+			isa = PBXGroup;
+			children = (
+				7F21EBB425C97D290006F48B /* User.swift */,
+			);
+			path = models;
+			sourceTree = "<group>";
+		};
 		1FAC8FD825B84CCE0069CA20 = {
 			isa = PBXGroup;
 			children = (
@@ -128,8 +136,9 @@
 		1FAC8FE325B84CCF0069CA20 /* loginRegister */ = {
 			isa = PBXGroup;
 			children = (
+				1FA6B2FD25CE075E00BA166D /* models */,
 				1FD0433825CAE0910003FED1 /* helpers */,
-				7F21EBB325C973C50006F48B /* storyboards */,
+				7F21EBB325C973C50006F48B /* views */,
 				7F21EBB225C973BE0006F48B /* controllers */,
 				1FAC8FE425B84CCF0069CA20 /* AppDelegate.swift */,
 				1FAC8FE625B84CCF0069CA20 /* SceneDelegate.swift */,
@@ -176,20 +185,19 @@
 				1F4E18D825C0165600CA1204 /* RegisterViewController.swift */,
 				1F4E18DD25C0166500CA1204 /* ForgotViewController.swift */,
 				1F4E18E325C0215000CA1204 /* ProfileViewController.swift */,
-				7F21EBB425C97D290006F48B /* User.swift */,
 				7F21EBB625C97E680006F48B /* Request.swift */,
 				1F6B065C25C9F5C200A2A0F2 /* GetUsersViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
 		};
-		7F21EBB325C973C50006F48B /* storyboards */ = {
+		7F21EBB325C973C50006F48B /* views */ = {
 			isa = PBXGroup;
 			children = (
 				1FAC8FEF25B84CD10069CA20 /* LaunchScreen.storyboard */,
 				1FAC8FEA25B84CCF0069CA20 /* Main.storyboard */,
 			);
-			path = storyboards;
+			path = views;
 			sourceTree = "<group>";
 		};
 		B0F52FC03A895F3DCCEF9F87 /* Pods */ = {
