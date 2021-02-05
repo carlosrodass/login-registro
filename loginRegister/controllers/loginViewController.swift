@@ -18,7 +18,7 @@ class loginViewController: UIViewController {
     let alertService = AlertService()
     
     //Actions
-    @IBAction func goButton(_ sender: Any) {
+    @IBAction func goButton(_ sender : Any) {
         
         let name : String = emailField.text!
         let pass : String = passField.text!
@@ -28,14 +28,21 @@ class loginViewController: UIViewController {
         request.logIn(endpoint: "api/login", parameters: parameters) { [weak self] (result) in
             
             switch result{
-            case.success:self?.performSegue(withIdentifier: "profileSegue", sender: self)
+            
+            case.success(200):
+                //self?.performSegue(withIdentifier: "profileSegue", sender: self)
+            print("Estoy entrando aqui")
+                
                 
             case.failure(let error):
                 guard let alert = self?.alertService.alert(message: error.localizedDescription) else {
                     return
                 }
                 self?.present(alert,animated: true)
+            case .success(_):
+                print("no se que pasa")
             }
+                
         }
     }
     

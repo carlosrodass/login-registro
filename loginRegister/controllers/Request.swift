@@ -39,7 +39,7 @@ class Request{
     //Login de usuario
     func logIn(endpoint: String
                , parameters: [String: Any]
-               ,completion: @escaping (Result<User, Error>) -> Void){
+               ,completion: @escaping (Result<Int, Error>) -> Void){
          
         let baseURl = "https://superapi.netlify.app/"
         guard let url = URL(string: baseURl + endpoint) else {
@@ -49,9 +49,6 @@ class Request{
         
         var request = URLRequest(url: url)
         
-//        for parametro in parameters {
-//
-//        }
  
         guard let httpBody = try? JSONSerialization.data(withJSONObject: parameters, options: []) else{
         return
@@ -78,7 +75,6 @@ class Request{
                 switch unWrappedResponse.statusCode{
                 case 200 ..< 300:
                     print("success")
-                 
                 
                 default:
                     print("failure")
@@ -89,21 +85,15 @@ class Request{
                 }
                 if let unwrappedData = data{
                     
-                    do{
-                        let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-                        print(json)
-                        
-                        if let users = try? JSONDecoder().decode(User.self, from: unwrappedData){
-                            completion(.success(users))
-                        } else{
-                            let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
-                            completion(.failure(errorResponse))
-                        }
-                    } catch{
-                        completion(.failure(error))
-                        
-                    }
+                    print(unwrappedData)
+                    do {
                     
+                        completion(.success(unWrappedResponse.statusCode))
+                            
+                    }catch {
+                        completion(.failure(error))
+                    }
+
                 }
             }
         }
@@ -169,3 +159,25 @@ class Request{
  //        components.queryItems = queryItems
  //        //name=wa&pass=wa
  //        let queryItemData = components.query?.data(using: .utf8)
+
+
+
+
+//                        do{
+////                            let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
+////                                print(json)
+//
+//                            if let users = try? JSONDecoder().decode(Respuesta.self, from: unwrappedData){
+//
+//                                print(users.respuesta)
+//
+//                                completion(.success(users))
+//                            }else{
+//
+//                              let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
+//                                    completion(.failure(errorResponse))
+//                                }
+//                        }catch{
+//                            completion(.failure(error))
+//
+//                        }
