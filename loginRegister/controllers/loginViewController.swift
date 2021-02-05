@@ -28,33 +28,42 @@ class loginViewController: UIViewController {
         request.logIn(endpoint: "api/login", parameters: parameters) { [weak self] (result) in
             
             switch result{
-            
-            case.success(200):
-                //self?.performSegue(withIdentifier: "profileSegue", sender: self)
-            print("Estoy entrando aqui")
                 
+            case.success(200):
+                
+                self?.prepare()
                 
             case.failure(let error):
+                
                 guard let alert = self?.alertService.alert(message: error.localizedDescription) else {
-                    return
-                }
+                        return
+                        }
                 self?.present(alert,animated: true)
-            case .success(_):
+              
+                
+            case.success(_):
+                
                 print("no se que pasa")
             }
                 
         }
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let profileVC = segue.destination as? ProfileViewController, let user = sender as? User {
-//
-//
-//        }
-//    }
+     func prepare() {
+
+        let loginVC = UIStoryboard(name: "Main", bundle: Bundle.main)
+
+        guard let destinationController = loginVC.instantiateViewController(identifier: "listController") as?
+            GetUsersViewController else{
+                print("No se instancia")
+                return
+        }
+        
+        navigationController?.pushViewController(destinationController, animated: true)
+    }
     
-    
-    
+ 
+
     override func viewDidLoad() {
         super.viewDidLoad()
 

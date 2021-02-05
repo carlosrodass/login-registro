@@ -9,36 +9,53 @@ import UIKit
 
 class GetUsersViewController: UIViewController {
     
-    
-   
     let request = Request()
+    let alertService = AlertService()
     
-    
-    //Instanciando la clase que posee las peticiones
-    @IBAction func getList(_ sender: Any) {
-        print("presionado")
-        request.getAllUsers()
-    }
-   
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let usuarios = request.getUseers()
         
-       
-           
+        request.getAllUsers(endpoint: "api/users") { [weak self] (result) in
+            
+            switch result{
+                
+            case.success(let lista):
+                print("imprimiendo desde getusers")
+                print(lista)
+                
+                break
+             
+                
+            case.failure(let error):
+                
+                guard let alert = self?.alertService.alert(message: error.localizedDescription) else {
+                        return
+                        }
+                self?.present(alert,animated: true)
+                
+                break
+                
+            
+            case.success(_):
+                print("no se")
+            }
+    
+
+
+}
+    
+}
+}
+
+class TableViewController : UITableViewController{
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
     }
     
- 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "userListItem", for: indexPath)
+        
+        return cell
     }
-    */
-
 }
