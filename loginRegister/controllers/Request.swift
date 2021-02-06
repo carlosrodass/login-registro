@@ -81,16 +81,18 @@ class Request{
                 }
                 
                 if let unwrappedError = error{
+                    //Enseñar error
                     completion(.failure(unwrappedError))
                 }
                 if let unwrappedData = data{
                     
                     print(unwrappedData)
                     do {
-                    
+                        //Caso respuesta correcto
                         completion(.success(unWrappedResponse.statusCode))
                             
                     }catch {
+                        //Caso respuesta error
                         completion(.failure(error))
                     }
 
@@ -103,14 +105,13 @@ class Request{
         
     }
     
-    
+    //Respuestas a peticion LogIn
     enum logInError: Error{
         case badURL
         case badResponse
     }
     
     
-  //
     //Obtener lista de usuarios
     func getAllUsers(endpoint: String , completion: @escaping (Result<[String], Error>) -> Void){
        
@@ -134,10 +135,7 @@ class Request{
                 print("succes get Users")
 
             }
-//            if let response = response{
-//                print(response)
-//            }
-            
+
             if let unwrappedData = data{
                 print(unwrappedData)
             
@@ -154,7 +152,7 @@ class Request{
                     }else{
                         let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
                             completion(.failure(errorResponse))
-                            //print(errorResponse)
+                           
                         }
                                 
                 }catch{
@@ -169,46 +167,4 @@ class Request{
   
 }
 }
-//let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-//print(json)
-
-
-// users = try JSONDecoder().decode([User].self, from: unwrappedData)
-                   //for user in users! {
-                       //print(user.name, user.pass)
-                       //}
-
-//        var components = URLComponents()
- //
- //        var queryItems = [URLQueryItem]()
- //
- //        for (key, value) in parameters {
- //            let queryItem = URLQueryItem(name: key, value: String(describing: value))
- //            queryItems.append(queryItem)
- //        }
- //
- //        components.queryItems = queryItems
- //        //name=wa&pass=wa
- //        let queryItemData = components.query?.data(using: .utf8)
-
-
-
-
-//                        do{
-////                            let json = try JSONSerialization.jsonObject(with: unwrappedData, options: [])
-////                                print(json)
-//
-//                            if let users = try? JSONDecoder().decode(Respuesta.self, from: unwrappedData){
-//
-//                                print(users.respuesta)
-//
-//                                completion(.success(users))
-//                            }else{
-//
-//                              let errorResponse = try JSONDecoder().decode(ErrorResponse.self, from: unwrappedData)
-//                                    completion(.failure(errorResponse))
-//                                }
-//                        }catch{
-//                            completion(.failure(error))
-//
-//                        }
+                      

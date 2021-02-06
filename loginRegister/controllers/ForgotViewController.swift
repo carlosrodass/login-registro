@@ -19,7 +19,7 @@ class ForgotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        //Button style
         button.layer.cornerRadius = 10
         button.clipsToBounds = true
       

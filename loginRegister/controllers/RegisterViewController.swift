@@ -20,7 +20,7 @@ class RegisterViewController: UIViewController {
     //Instanciando la clase que posee las peticiones
     let request = Request()
     
-    //Action
+    //Action registro de usuarios
     @IBAction func registerButton(_ sender: Any) {
         
         //Recogiendo informacion de los campos

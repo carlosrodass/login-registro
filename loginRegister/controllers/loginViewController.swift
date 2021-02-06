@@ -18,7 +18,7 @@ class loginViewController: UIViewController {
     let request = Request()
     let alertService = AlertService()
     
-    //Actions
+    //Actions, validar datos
     @IBAction func goButton(_ sender : Any) {
         
         let name : String = emailField.text!
@@ -26,16 +26,18 @@ class loginViewController: UIViewController {
         
         let parameters = ["user":name, "pass":pass]
         
+        //Respuesta del closure
         request.logIn(endpoint: "api/login", parameters: parameters) { [weak self] (result) in
             
             switch result{
                 
             case.success(200):
-                
+                //Segue tras hacer login a lista de usuarios
                 self?.prepare()
                 
             case.failure(let error):
                 
+                //Mostrando alerta en caso de erro
                 guard let alert = self?.alertService.alert(message: error.localizedDescription) else {
                         return
                         }
@@ -44,7 +46,7 @@ class loginViewController: UIViewController {
                 
             case.success(_):
                 
-                print("no se que pasa")
+                print("succes diferente de 200")
             }
                 
         }
