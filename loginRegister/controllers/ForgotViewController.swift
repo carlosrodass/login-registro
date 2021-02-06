@@ -10,6 +10,7 @@ import UIKit
 class ForgotViewController: UIViewController {
 
     //Outlets
+    @IBOutlet weak var button: UIButton!
     @IBOutlet weak var emailField: UITextField!
     
     //Actions
@@ -18,7 +19,9 @@ class ForgotViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
       
     }
     

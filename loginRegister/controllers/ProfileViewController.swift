@@ -9,10 +9,13 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-   
+    @IBOutlet weak var button: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        //Button style
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
         
     }
     

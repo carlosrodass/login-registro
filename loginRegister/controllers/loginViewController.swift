@@ -12,6 +12,7 @@ class loginViewController: UIViewController {
     //Outlets
     @IBOutlet weak var emailField: UITextField!
     @IBOutlet weak var passField: UITextField!
+    @IBOutlet weak var button: UIButton!
     
     //Instanciando la clase que posee las peticiones
     let request = Request()
@@ -66,7 +67,10 @@ class loginViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //Button style
+        button.layer.cornerRadius = 10
+        button.clipsToBounds = true
         
     }
     
